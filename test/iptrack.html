@@ -4,10 +4,11 @@
 <script type="application/javascript" src="//api.ipify.org?format=jsonp&callback=getIP"></script>
 <script type="application/javascript">
 function myIP() {
+alert("method call");
     if (window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
     else xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 
-    xmlhttp.open("GET","//api.ipify.org?format=jsonp&callback=getIP",false);
+    xmlhttp.open("GET","//api.ipify.org",false);
     xmlhttp.send();
 
     hostipInfo = xmlhttp.responseText.split("\n");
@@ -26,7 +27,7 @@ function myIP() {
 
 <body>
 <h1>IP Traccking <h1>
-<input type="button" value="get ip" onclick="ipval()">
+<input type="button" value="get ip" onclick="myIP()">
 
 </body>
 </html>
