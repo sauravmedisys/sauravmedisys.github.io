@@ -3,13 +3,24 @@
 <head>
 <script type="application/javascript" src="//api.ipify.org?format=jsonp&callback=getIP"></script>
 <script type="application/javascript">
-function getIP(json) {
-  alert("hello")
-    document.write("My public IP address is: ", json.ip);
-  }
+function myIP() {
+    if (window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
+    else xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+    xmlhttp.open("GET","//api.ipify.org?format=jsonp&callback=getIP",false);
+    xmlhttp.send();
+
+    hostipInfo = xmlhttp.responseText.split("\n");
+	console.log(hostipInfo);
+    /* for (i=0; hostipInfo.length >= i; i++) {
+        ipAddress = hostipInfo[i].split(":");
+        if ( ipAddress[0] == "IP" ) return ipAddress[1];
+    } */
+
+    return false;
+}
 </script>
 
-</script>
 
 </head>
 
